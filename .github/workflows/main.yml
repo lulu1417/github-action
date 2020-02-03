@@ -15,3 +15,17 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+    - name: decrypt
+      run: |
+        mkdir $HOME/secrets
+        gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" \
+        --output $HOME/secrets/key google_compute_engine.gpg
+      env:
+        PASSPHRASE: ${{ secrets.PASSPHRASE }}
+    - name: test printing
+      run: cat $HOME/secrets/key
+    - name: chmod
+      run: chmod 600 $HOME/secrets/key
+    - name: ssh
+      run: ssh -o StrictHostKeyChecking=no -i $HOME/secrets/key admin@34.70.255.165
+ "c/;git pull"  
