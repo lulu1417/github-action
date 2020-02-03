@@ -1,3 +1,3 @@
 <?php
-echo "hihihi";
+echo "four";
 

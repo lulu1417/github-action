@@ -27,4 +27,4 @@ jobs:
     - name: chmod
       run: chmod 600 $HOME/secrets/key
     - name: ssh
-      run: ssh -o StrictHostKeyChecking=no -i $HOME/secrets/key admin@34.70.255.165 "c/;git pull"  
+      run: ssh -o StrictHostKeyChecking=no -i $HOME/secrets/key admin@34.70.255.165 "cd github-action/;git pull"  
